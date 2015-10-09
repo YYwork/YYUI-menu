@@ -1,0 +1,38 @@
+$menu-icon-color: #37a508;
+$menu-icon-width: 40px;
+$menu-icon-height: 40px;
+.menu-icon {
+  width: $menu-icon-width;
+  height: $menu-icon-height;
+  @include breakpoint($breakpoint-width) {
+    display: none;
+  }
+}
+
+.menu-icon:before {
+  content: '';
+  height: $menu-icon-height/5;
+  width: $menu-icon-width;
+  background: $menu-icon-color;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  display: block;
+  position: absolute;
+  top: $menu-icon-height/10;
+  left: 0;
+  box-shadow: 0 12px 0 $menu-icon-color, 0 24px 0 $menu-icon-color;
+  -webkit-box-shadow: 0 12px 0 $menu-icon-color, 0 24px 0 $menu-icon-color;
+  -moz-box-shadow: 0 12px 0 $menu-icon-color, 0 24px 0 $menu-icon-color;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0px;
+  vertical-align: middle;
+  border-top: 5px solid #fff;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}

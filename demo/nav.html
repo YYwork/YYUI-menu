@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>nav</title>
+  <style type="text/css">
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    position: relative;
+  }
+  .menu-icon {
+    position: absolute;
+    margin: 10px;
+  }
+  </style>
+  <link rel="stylesheet" type="text/css" href="../lib/nav.css">
+</head>
+
+<body style="margin: 0; padding: 0;">
+  <input type="checkbox" id="tm">
+  <nav class="header-nav nav-style-one">
+    <div class="nav-main">
+      <ul>
+        <li class="active"><a href="http://www.qiai.cn.com">首页</a></li>
+        <li><a href="http://www.qiai.cn.com">公司信息</a></li>
+        <li><a href="http://www.qiai.cn.com">企业文化</a></li>
+        <li class="nav-item">
+          <a>
+            <label for="tm-children1">产品中心 <span class="caret"></span></label>
+          </a>
+          <input type="checkbox" class="tm-children" id="tm-children1">
+          <div class="nav-items">
+            <ol>
+              <li>
+                <a target="_blank" href="http://www.qiai.cn.com">demo1</a>
+              </li>
+              <li>
+                <a target="_blank" href="http://www.qiai.cn.com">demo2</a>
+              </li>
+            </ol>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a>
+            <label for="tm-children2">商城 <span class="caret"></span></label>
+          </a>
+          <input type="checkbox" class="tm-children" id="tm-children2">
+          <div class="nav-items">
+            <ol>
+              <li>
+                <a target="_blank" href="http://www.qiai.cn.com">demo3</a>
+              </li>
+              <li>
+                <a target="_blank" href="http://www.qiai.cn.com">demo4</a>
+              </li>
+            </ol>
+          </div>
+        </li>
+        <li><a href="http://www.qiai.cn.com">新闻</a></li>
+        <li><a target="_blank" href="http://www.qiai.cn.com">论坛</a></li>
+        <li><a href="http://www.qiai.cn.com">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="nav-hide">
+      <!-- <label for="tm"><span class="arrow arrow-up"></span>收起</label> -->
+      <label for="tm"><span class="arrow arrow-left"></span>收起</label>
+    </div>
+  </nav>
+  <div class="main nav-aside-main" style="">
+    <label for="tm" class="menu-icon"></label>
+    <div>
+    </div>
+  </div>
+</body>
+
+</html>

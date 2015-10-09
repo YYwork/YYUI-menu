@@ -1,0 +1,211 @@
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities/";
+@import "../bower_components/compass-breakpoint/stylesheets/breakpoint";
+
+$base-width: 980px;
+$breakpoint-width: 720px;
+$nav-height: 42px;
+$nav-li-hover-color: #279005;
+$nav-li-border-color: #fff;
+$nav-bg-color: #37a508;
+$nav-font-color: #fff;
+$nav-items-font-color: #000;
+$nav-items-bg-color: #fff;
+$nav-items-border-color: #ddd;
+$nav-items-hover-color: #37a508;
+$time-delay: 0.08s;
+
+@import "_icon.scss";
+
+.nav-hide {
+  display: block;
+  text-align: right;
+  color: $nav-font-color;
+  padding: 4px;
+  background-color: transparent;
+  label {
+    @include inline-block;
+    padding: 6px 16px;
+    background-color: #fff;
+    @include border-radius(5px);
+    color: $nav-bg-color;
+  }
+  @include breakpoint($breakpoint-width) {
+    display: none;
+  }
+}
+
+.header-nav {
+  // display: none;
+  padding-top: 30px;
+  width: 150px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  @include breakpoint($breakpoint-width) {
+    display: block;
+    height: $nav-height;
+    padding-top: 0;
+    width: 100%;
+    left: initial;
+    top: initial;
+    bottom: initial;
+    position: relative;
+  }
+  background-color: $nav-bg-color;
+  text-align: center;
+  .nav-main {
+    max-width: $base-width;
+    margin: 0 auto;
+  }
+  .active {
+    background-color: $nav-li-hover-color;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    &>li {
+      position: relative;
+      list-style: none;
+      display: block;
+      border-bottom: 1px solid $nav-li-border-color;
+      @include breakpoint($breakpoint-width) {
+        float: left;
+        @include inline-block;
+        border-bottom: none;
+      }
+      &:hover {
+        background-color: $nav-li-hover-color;
+        @include breakpoint($breakpoint-width) {
+          .nav-items {
+            // display: block;
+            @include breakpoint($breakpoint-width) {
+              @include inline-block;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 0 10px;
+      line-height: $nav-height;
+      color: $nav-font-color;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.4s;
+      @include breakpoint($breakpoint-width) {
+        opacity: initial;
+        transform: initial;
+        transition: initial;
+      }
+    }
+  }
+}
+
+.nav-items {
+  display: none;
+  position: relative;
+  @include clearfix;
+  min-width: 100%;
+  @include breakpoint($breakpoint-width) {
+    z-index: 9999;
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+    @include inline-block;
+    border: 1px solid $nav-bg-color;
+  }
+  margin-top: -1px;
+  background-color: $nav-items-bg-color;
+  ol {
+    padding: 0;
+    margin: 0;
+    &>li {
+      list-style: none;
+      display: block;
+      @include box-sizing(border-box);
+      @include breakpoint($breakpoint-width) {
+        padding: 0 10px;
+      }
+    }
+    a {
+      text-decoration: none;
+      line-height: $nav-height;
+      color: $nav-items-font-color;
+      border-bottom: 1px solid $nav-items-border-color;
+      @include breakpoint($breakpoint-width) {
+        border-right: 0;
+        border-bottom: none;
+      }
+      &:hover {
+        color: $nav-items-hover-color;
+      }
+    }
+  }
+}
+
+.nav-aside-main {
+  transition: all 0.25s;
+}
+
+#tm {
+  display: none;
+  //   &:checked ~ .header-nav {
+  //   display: block;
+  // }
+  &:checked ~ .nav-aside-main {
+    transform: translateX(150px);
+  }
+  &:checked ~ .header-nav ul>li {
+    a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i})>a {
+        transition-delay: $time-delay*$i;
+      }
+    }
+  }
+}
+
+.tm-children {
+  display: none;
+}
+
+@for $i from 1 through 2 {
+  #tm-children#{$i} {
+    &:checked ~ .nav-items {
+      display: block;
+    }
+  }
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.arrow-left:before {
+  border: none;
+  background-color: $nav-bg-color;
+  height: 30%;
+  width: 50%;
+  top: 35%;
+  left: 50%;
+}
+
+.arrow-left:after {
+  left: -50%;
+  top: 0;
+  border-width: 8px 8px;
+  border-right-color: $nav-bg-color;
+}

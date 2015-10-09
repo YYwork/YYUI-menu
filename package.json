@@ -1,0 +1,13 @@
+{
+  "name": "pure CSS3 menu",
+  "version": "0.0.1",
+  "devDependencies": {
+    "node-sass": "~3.3.2",
+
+    "gulp-sass": "~2.0.4",
+    "gulp-compass": "~2.1.0",
+
+    "gulp-swig": "~0.7.4",
+    "gulp-data": "~1.2.0"
+  }
+}
